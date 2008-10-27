@@ -23,7 +23,7 @@ module Growlr
     options.delete :cache
     
     growl_without_options = "\n$.jGrowl('#{message}');"
-    growl_with_options = "\n$.jGrowl('#{message}', {#{options.to_json}});"
+    growl_with_options = "\n$.jGrowl('#{message}', #{options.to_json});"
     msg = options.blank? ? growl_without_options : growl_with_options
     cached ? append_growlr_cache(msg) : append_growlr_msg(msg)
   end
