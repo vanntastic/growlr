@@ -1,0 +1,19 @@
+default_config:
+  header: A Title
+  sticky: true/false
+  glue: after/before
+  position: top-right/top-left/bottom-right/center
+  theme: a css class
+  corners: 10px # must have corners plugin to use this
+  check: 1000 # the frequency that jgrowl should check for messages to be scrubbed
+  life: 3000 # the lifespan of a non-sticky message
+  speed: normal/slow/fast # the animation speed
+  easing: swing # easing to use when opening or closing a notification
+  closing: true/false # display the closing bar
+  closerTemplate: <div>[close all]</div> # the content for the close all link
+  log: function(e,m,o) # A callback to be used before anything is done with the notification
+  beforeOpen: function(e,m,o) # A callback to be used before the notification opens
+  open: function(e,m,o) # A callback to be used when a new notification is opened
+  beforeClose: function(e,m,o) # A callback to use before the notification closes
+  close: function(e,m,o) # A callback to use when the notification closes
+  # left out animateOpen and animnateClose since it uses {} hash operators and screws up the the yaml processor
