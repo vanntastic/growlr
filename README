@@ -30,7 +30,7 @@ You can also pass the same options as the jgrowl plugin.
 Todo's
 ======
 
-x complete the the growl method
+x complete the growl method
 x add all the jquery and jgrowl asset files
 2. work on the yml processing for the config files - should have support for multiple configs in one yaml file
 3. create rake installers

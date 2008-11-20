@@ -6,14 +6,15 @@ module Growlr
   GROWLR_CACHE = File.join(RAILS_ROOT, "tmp", ".growlr_cache")
   
   def include_growlr(include_jquery=false)
+    # FIXME: this cache doesn't clear properly in ie for some reason...
     clean_growlr_cache
     growl_flash_messages
     generate_js all_messages
     clean_growlr_msgs
     js << 'jquery.js' if include_jquery
     js = %w(jquery.jgrowl_compressed.js load-growlr)
-    content = javascript_include_tag(js)
-    content << stylesheet_link_tag("jquery.jgrowl.css")
+    content = stylesheet_link_tag("jquery.jgrowl.css")
+    content << javascript_include_tag(js)
     return content
   end
   
