@@ -1,19 +1,19 @@
 module Growlr
   
   JS_PATH = File.join(RAILS_ROOT, "public", "javascripts")
-  GROWLR_SRC = File.join(JS_PATH, "load-growlr.js")
   # the growl cache is used for permanent messages such as flash notices
   GROWLR_CACHE = File.join(RAILS_ROOT, "tmp", ".growlr_cache")
   
+  # TODO : maybe look to add in a JS proxy for easier js generation 
   def include_growlr(include_jquery=false)
+    clean_growlr_msgs
     clean_growlr_cache
     growl_flash_messages
-    generate_js all_messages
-    clean_growlr_msgs
-    js << 'jquery.js' if include_jquery
-    js = %w(jquery.jgrowl_compressed.js load-growlr)
-    content = stylesheet_link_tag("jquery.jgrowl.css")
-    content << javascript_include_tag(js)
+    js = include_jquery ? 'jquery.js' : ""
+    js << "jquery.jgrowl_compressed.js"
+    content = "#{stylesheet_link_tag('jquery.jgrowl.css')}\n"
+    content << "#{javascript_include_tag(js)}\n"
+    content << generate_js(all_messages)
     return content
   end
   
@@ -71,11 +71,13 @@ module Growlr
   end
   
   def generate_js(content)
-    File.open(GROWLR_SRC, "w+") do |file|
-      file << js_head
-      file << content
-      file << js_foot
-    end
+    <<-JS
+      \n<script type="text/javascript" charset="utf-8">\n
+      #{js_head}\n
+        #{content}\n
+      #{js_foot}\n  
+      </script>\n
+    JS
   end
   
 end
