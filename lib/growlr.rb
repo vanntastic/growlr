@@ -21,7 +21,7 @@ module Growlr
     options[:cache] ||= false
     cached = options[:cache]
     options.delete :cache
-    
+    message.gsub! /[']/, '\\\\\''
     growl_without_options = "\n$.jGrowl('#{message}');"
     growl_with_options = "\n$.jGrowl('#{message}', #{options.to_json});"
     msg = options.blank? ? growl_without_options : growl_with_options
