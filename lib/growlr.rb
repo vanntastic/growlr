@@ -71,6 +71,7 @@ module Growlr
   end
   
   def generate_js(content)
+    return '' if content.to_s.empty?
     <<-JS
       \n<script type="text/javascript" charset="utf-8">\n
       #{js_head}\n
