@@ -1,7 +1,7 @@
 Growlr
 ======
 
-Give your rails apps growl based notifications. Basically a rails plugin wrapper for Stan's excellent jGrowl library. This is a nice alternative to static flash messages, plus it integrates with all flash messages automatically, no need to put it in your view!
+Give your rails apps growl based notifications. Basically a rails plugin wrapper for Stan's excellent jGrowl library. This is a nice alternative to static flash messages, plus it integrates with all flash messages automatically, no need to output flash messages in your view!
 
 Requirements
 ============
@@ -23,18 +23,15 @@ Usage
 
 Growlr will automatically detect flash messages and display them accordingly. You can explicitly call Growlr by writing the following in your action or controller:
 
-   growl "hello peoples"
+     growl "hello peoples"
 
 You can also pass the same options as the jgrowl plugin.
 
 Todo's
 ======
 
-x complete the growl method
-x add all the jquery and jgrowl asset files
-2. work on the yml processing for the config files - should have support for multiple configs in one yaml file
-3. create rake installers
-4. write the functional specs
+* work on the yml processing for the config files - should have support for multiple configs in one yaml file
+* write the functional specs
 
 
 Copyright Stuff
