@@ -16,7 +16,7 @@ Installation
 2. include the following snippet in your layout or view file, preferably in the
    head section.
 
-     <%= include_growlr %>
+        <%= include_growlr %>
 
 Usage 
 ======
