@@ -14,7 +14,7 @@ Installation
 
 1. rake growlr:install:all
 2. include the following snippet in your layout or view file, preferably in the
-   head section.
+   head section of your layout file.
 
         <%= include_growlr %>
 
